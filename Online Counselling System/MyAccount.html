@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["user"].value;
+            if (x === "") {
+                alert("Email must be filled out");
+                return false;
+            }
+            var a = document.forms["myForm"]["password"].value;
+            if (a === "") {
+                alert("Password must be filled out");
+                return false;
+            }
+        }
+    </script>
+
+    <title>Online Personal Counselling</title>
+    <link href="My account_style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header">
+        <!-- Logo & Name -->
+        <img id="logo" src="images/logo.png" alt="Personal Online Counselling">
+        <h1>Personal Online Counselling</h1>
+    </div>
+
+    <!-- Navigation -->
+    <ul id="navi-bar">
+        <li><a class="nav-item" href="Home.html">Home</a></li>
+        <li><a class="nav-item" href="Service.html">Service</a></li>
+        <li><a class="nav-item" href="Counsellors.html">Counsellors</a></li>
+        <li><a class="nav-item" href="Invite.html">Invite</a></li>
+        <li><a id="cho-item" href="MyAccount.html">My account</a></li>
+        <li><a class="nav-item" href="Registration.html">Register</a></li>
+        <li><a class="nav-item" href="About.html">About us</a></li>
+    </ul>
+
+    <!-- Body -->
+   
+        <div id="login-form">
+            <h2>LOG IN</h2>
+            <form name="myForm" onsubmit="return validateForm()" method="post">
+                <input class="form-input" placeholder="Email" type="text" name="user"><br>
+                <input class="form-input" placeholder="Password" type="password" name="password"><br>
+                <button id="login-button" type="submit" name="btnSubmit">Login</button>
+            </form>
+
+            <!-- Placeholder for error messages -->
+            <!-- <p style="color:red;">Invalid email or password</p><br> -->
+        </div>
+    
+
+    <!-- Footer -->
+    <div id="footer-background">
+        <!-- Address -->
+        <div id="foot-addr">
+            <h3 class="address">Personal Online Counselling Co.</h3>
+            <h3 class="address">MARAIMALAINAGAR</h3>
+            <h3 class="address">CHENGULPATTU</h3>
+            <h2 class="address">TN,INDIA</h2>
+        </div>
+        <!-- Social Media -->
+        <div id="social-media">
+            <h3>Follow us:</h3>
+            <p>
+                <a href="#"><img src="images/fac.png" width="100" alt="Facebook"></a>
+                <a href="#"><img src="images/ins.png" width="100" alt="Instagram"></a>
+                <a href="#"><img src="images/twi2.png" width="100" alt="Twitter"></a>
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>

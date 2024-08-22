@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["fname"].value;
+            if (x == "") {
+                alert("First Name must be filled out");
+                return false;
+            }
+            var a = document.forms["myForm"]["lname"].value;
+            if (a == "") {
+                alert("Last Name must be filled out");
+                return false;
+            }
+            var b = document.forms["myForm"]["ymail"].value;
+            if (b == "") {
+                alert("Email must be filled out");
+                return false;
+            }
+            var c = document.forms["myForm"]["dat"].value;
+            if (c == "") {
+                alert("Date must be filled out");
+                return false;
+            }
+            var d = document.forms["myForm"]["country"].value;
+            if (d == "") {
+                alert("Country must be filled out");
+                return false;
+            }
+            var e = document.forms["myForm"]["contact"].value;
+            if (e == "") {
+                alert("Contact must be filled out");
+                return false;
+            }
+            var f = document.forms["myForm"]["uname"].value;
+            if (f == "") {
+                alert("User Name must be filled out");
+                return false;
+            }
+            var g = document.forms["myForm"]["pass"].value;
+            if (g == "") {
+                alert("Password must be Entered");
+                return false;
+            }
+            if (g.length < 7) {
+                alert("Password must be at least 7 characters long");
+                return false;
+            }
+            var h = document.forms["myForm"]["cpass"].value;
+            if (h != g) {
+                alert("Confirm password didn't match");
+                return false;
+            }
+        }
+    </script>
+    <title>Online Personal Counselling</title>
+    <link href="Registation_style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--Header-->
+    <div id="header">
+        <!--logo & name-->
+        <img id="logo" src="images/logo.png" alt="Personal Online Counselling">
+        <h1>Personal Online Counselling</h1>
+        <!--search-->
+        
+    </div>
+    <!--Navigation-->
+    <ul id="navi-bar">
+        <li><a class="nav-item" href="Home.html">Home</a></li>
+        <li><a class="nav-item" href="Service.html">Service</a></li>
+        <li><a class="nav-item" href="Counsellors.html">Counsellors</a></li>
+        <li><a class="nav-item" href="Invite.html">Invite</a></li>
+        <li><a class="nav-item" href="MyAccount.html">My account</a></li>
+        <li><a id="cho-item" href="Registration.html">Register</a></li>
+        <li><a class="nav-item" href="About.html">About us</a></li>
+    </ul>
+
+    <!--Body-->
+    
+        <div id="form-back">
+            <h2>Registration</h2>
+            <form action="success.html" name="myForm" onsubmit="return validateForm()" method="post">
+                First Name:
+                <input id="first-name" placeholder="First Name" type="text" name="fname"> Last Name:
+                <input id="last-name" placeholder="Last Name" type="text" name="lname"><br> E-mail:
+                <input id="email" placeholder="E-mail Address" type="text" name="ymail"><br> Date of Birth:
+                <input id="date" type="date" name="dat"><br> Country:
+                <input id="coun" placeholder="Country" type="text" name="country"> Contact Number:
+                <input id="cont" placeholder="Contact number" type="number" name="contact"><br> User Name:
+                <input id="uname" placeholder="Username" type="text" name="uname"><br> Password:
+                <input id="pass" placeholder="Password min 7 characters" type="password" name="pass"><br> C.Password:
+                <input id="cpass" placeholder="Confirm Password" type="password" name="cpass"><br>
+                <button id="signup" type="submit" name="btnSubmit">SIGN UP</button>
+            </form>
+        </div>
+   
+
+    <!--footer-->
+    <div id="footer-background">
+        <!--address-->
+        <div id="foot-addr">
+            <h3 class="address">Personal Online Counselling Co.</h3>
+            <h3 class="address">MARAIMALAINAGAR</h3>
+            <h3 class="address">CHENGULPATTU</h3>
+            <h2 class="address">TN, INDIA</h2>
+        </div>
+        <!--social media-->
+        <div id="social-media">
+            <h3>Follow us:</h3>
+            <p>
+                <a href="#"><img src="images/fac.png" width="100"></a>
+                <a href="#"><img src="images/ins.png" width="100"></a>
+                <a href="#"><img src="images/twi2.png" width="100"></a>
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["fname"].value;
+            if (x === "") {
+                alert("First Name must be filled out");
+                return false;
+            }
+            var a = document.forms["myForm"]["lname"].value;
+            if (a === "") {
+                alert("Last Name must be filled out");
+                return false;
+            }
+            var b = document.forms["myForm"]["tnumber"].value;
+            if (b === "") {
+                alert("Telephone number must be entered");
+                return false;
+            }
+            var c = document.forms["myForm"]["location"].value;
+            if (c === "") {
+                alert("Location must be filled out");
+                return false;
+            }
+        }
+    </script>
+
+    <title>Online Personal Counselling</title>
+    <link href="Invite_style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header">
+        <!-- Logo & Name -->
+        <img id="logo" src="images/logo.png" alt="Personal Online Counselling">
+        <h1>Personal Online Counselling</h1>
+    </div>
+
+    <!-- Navigation -->
+    <ul id="navi-bar">
+        <li><a class="nav-item" href="Home.html">Home</a></li>
+        <li><a class="nav-item" href="Service.html">Service</a></li>
+        <li><a class="nav-item" href="Counsellors.html">Counsellors</a></li>
+        <li><a id="cho-item" href="Invite.html">Invite</a></li>
+        <li><a class="nav-item" href="MyAccount.html">My Account</a></li>
+        <li><a class="nav-item" href="Registration.html">Register</a></li>
+        <li><a class="nav-item" href="About.html">About Us</a></li>
+    </ul>
+
+    <!-- Body -->
+    
+        <div id="invite">
+            <h2>Invite your therapist to your doorstep</h2>
+            <div id="invite-first">
+                <h4 class="para">Here are the things you have to do:</h4><br>
+                <ul>
+                    <li class="para">Fill it.</li>
+                    <li class="para">Submit it.</li>
+                </ul>
+                <br>
+                <p class="para">We will contact you for extra details:</p>
+            </div>
+            <div id="invite-last">
+                <form id="form" name="myForm" onsubmit="return validateForm()" method="post">
+                    <label for="fname">First Name :</label>
+                    <input type="text" class="name" name="fname" placeholder="First name..">
+                    <br>
+                    <label for="lname">Last Name :</label>
+                    <input type="text" class="name" name="lname" placeholder="Last name..">
+                    <br>
+                    <label for="tnumber">Phone Number :</label>
+                    <input class="name" type="number" name="tnumber" placeholder="T.P number..">
+                    <br>
+                    <label for="location">Location:</label>
+                    <input class="name" type="text" name="location" placeholder="Location">
+                    <br><br>
+                    <input id="submit" type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+    <!-- Footer -->
+    <div id="footer-background">
+        <!-- Address -->
+        <div id="foot-addr">
+            <h3 class="address">Personal Online Counselling Co.</h3>
+            <h3 class="address">MARAIMALAINAGAR</h3>
+            <h3 class="address">CHENGULPATTU</h3>
+            <h2 class="address">TN,INDIA</h2>
+        </div>
+        <!-- Social Media -->
+        <div id="social-media">
+            <h3>Follow us:</h3>
+            <p>
+                <a href="https://www.facebook.com"><img src="images/fac.png" width="100" alt="Facebook"></a>
+                <a href="#"><img src="images/ins.png" width="100" alt="Instagram"></a>
+                <a href="#"><img src="images/twi2.png" width="100" alt="Twitter"></a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
