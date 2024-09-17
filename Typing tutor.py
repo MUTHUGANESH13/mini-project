@@ -1,67 +1,85 @@
 import time
 
 def calculate_typing_speed_and_accuracy(original_text, typed_text, start_time, end_time):
+
     # Calculate time taken in minutes
-    time_taken = (end_time - start_time) / 60  # convert seconds to minutes
+    time_taken_seconds = end_time - start_time
+    time_taken_minutes = time_taken_seconds / 60  # Convert seconds to minutes
+    
+    # Print time taken
+    print(f"Time taken: {time_taken_seconds:.2f} seconds")
+    print(f"Time taken: {time_taken_minutes:.2f} minutes")
     
     # Calculate words per minute (WPM)
-    word_count = len(typed_text.split())
-    typing_speed_wpm = word_count / time_taken if time_taken > 0 else 0
+    typed_words = typed_text.split()
+    word_count = len(typed_words)
     
+    if time_taken_minutes > 0:
+        typing_speed_wpm = word_count / time_taken_minutes
+    else:
+        typing_speed_wpm = 0
+
+    # Print typing speed
+    print(f"Total words typed: {word_count}")
+    print(f"Typing Speed: {typing_speed_wpm:.2f} WPM")
+
     # Calculate accuracy
     original_words = original_text.split()
-    typed_words = typed_text.split()
     
-    correct_words = 0
-    for original_word, typed_word in zip(original_words, typed_words):
-        if original_word == typed_word:
-            correct_words += 1
+    # Counting correct words
+    correct_words = sum(1 for o, t in zip(original_words, typed_words) if o == t)
     
-    accuracy = (correct_words / len(original_words)) * 100 if original_words else 0
-    
-    # Output result
-    print(f"\nResults:\n"
-          f"Typing Speed: {typing_speed_wpm:.2f} WPM\n"
-          f"Accuracy: {accuracy:.2f}%\n"
-          f"Correct Words: {correct_words}/{len(original_words)}\n")
+    # Calculate accuracy percentage
+    if original_words:
+        accuracy = (correct_words / len(original_words)) * 100
+    else:
+        accuracy = 0
 
-def typing_tutor():
-    # Prompt the user for text (paragraph input allowed)
-    print("Enter the paragraph you want to use for the typing test (press Enter twice to finish):\n")
-    
-    original_text = []
+    # Print accuracy results
+    print(f"Correct Words: {correct_words}/{len(original_words)}")
+    print(f"Accuracy: {accuracy:.2f}%\n")
+
+def get_paragraph(prompt):
+
+    print(prompt)
+    lines = []
     while True:
         line = input()
-        if not line:  # Empty input means paragraph is finished
+        if not line:  # Empty input ends the paragraph
             break
-        original_text.append(line)
+        lines.append(line)
+    return "\n".join(lines)
+
+def start_typing_test():
+
+    # Prompt user to enter the original text
+    original_text_prompt = "Enter the paragraph you want to use for the typing test (press Enter twice to finish):\n"
+    original_text = get_paragraph(original_text_prompt)
     
-    original_text = "\n".join(original_text)
-    
+    # Display the original text to the user for typing
     print("\nYour typing test begins now. Please retype the following paragraph:\n")
     print(original_text)
     
-    # Start timer
+    # Wait for user to start typing
     input("\nPress Enter to start typing...\n")
+    
+    # Record the start time
     start_time = time.time()
     
-    # Get typed paragraph from user
-    print("\nType the paragraph and press Enter twice when done:\n")
+    # Prompt user to type the paragraph
+    typed_text_prompt = "Type the paragraph and press Enter twice when done:\n"
+    typed_text = get_paragraph(typed_text_prompt)
     
-    typed_text = []
-    while True:
-        line = input()
-        if not line:  # Empty input means typing is finished
-            break
-        typed_text.append(line)
-    
-    typed_text = "\n".join(typed_text)
-    
-    # End timer
+    # Record the end time
     end_time = time.time()
     
-    # Calculate and display results
+    # Calculate and print results
     calculate_typing_speed_and_accuracy(original_text, typed_text, start_time, end_time)
 
-if _name_ == "_main_":
-    typing_tutor()
+def main():
+
+    print("Welcome to the Typing Tutor Program!\n")
+    start_typing_test()
+
+if __name__ == "__main__":
+    main()
